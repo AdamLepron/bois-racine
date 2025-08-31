@@ -17,7 +17,7 @@
 			text-align: center;
 			margin-bottom: 30px;
 		}
-		
+
 		.filter-btn {
 			display: inline-block;
 			padding: 8px 16px;
@@ -29,32 +29,100 @@
 			cursor: pointer;
 			transition: all 0.3s;
 		}
-		
-		.filter-btn:hover, .filter-btn.active {
+
+		.filter-btn:hover,
+		.filter-btn.active {
 			background: #8e6c4b;
 			color: white;
 			border-color: #8e6c4b;
 		}
-		
+
 		/* Style pour la galerie */
 		.gallery-grid {
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 			gap: 20px;
 		}
-		
+
 		.gallery-item {
-			display: none; /* caché par défaut */
+			display: none;
+			/* caché par défaut */
 		}
-		
+
 		.gallery-item.show {
 			display: block;
 			animation: fadeIn 0.5s;
 		}
-		
+
 		@keyframes fadeIn {
-			from { opacity: 0; }
-			to { opacity: 1; }
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		.gallery-item .image {
+			display: block;
+			position: relative;
+			width: 100%;
+			padding-top: 100%;
+			/* Crée un ratio 1:1 */
+			overflow: hidden;
+		}
+
+		.gallery-item .image img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			/* Recadre l'image pour remplir le conteneur */
+		}
+
+		.gallery-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 20px;
+			max-height: calc(2 * (300px + 50px));
+			/* 2 lignes (hauteur d'image + gap) */
+			overflow: hidden;
+			transition: max-height 0.5s ease;
+		}
+
+		.gallery-grid.expanded {
+			max-height: none !important;
+		}
+
+		.show-more-container {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		.show-more-btn {
+			background: #8e6c4b;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+
+		.show-more-btn:hover {
+			background: #6d5338;
+		}
+
+		.show-more-btn .icon {
+			margin-left: 8px;
+			transition: transform 0.3s;
+		}
+
+		.show-more-btn.expanded .icon {
+			transform: rotate(180deg);
 		}
 	</style>
 </head>
@@ -81,7 +149,7 @@
 		<!-- Banner -->
 		<section id="banner">
 			<header>
-				<h2>Solgan part1 <em>Solgan part2</em></h2>
+				<h2>Votre coin de verdure, <em>sculpté en bois et en rêves. </em></h2>
 			</header>
 		</section>
 
@@ -97,23 +165,26 @@
 						</header>
 
 						<!-- Nouvelle Gallery Grid avec filtres -->
-						<div class="filter-buttons">
-							<button class="filter-btn active" data-filter="all">Toutes</button>
-							<button class="filter-btn" data-filter="mural">Murales</button>
-							<button class="filter-btn" data-filter="suspendu">Suspendues</button>
-							<button class="filter-btn" data-filter="interieur">Intérieur</button>
-							<button class="filter-btn" data-filter="design">Design</button>
-							<button class="filter-btn" data-filter="mesure">Sur Mesure</button>
+						<div class="filter-buttons" id="filter-container">
+							<!-- Les boutons seront générés dynamiquement ici -->
 						</div>
 
 						<div class="gallery-grid" id="gallery-container">
 							<!-- Les éléments de la galerie seront générés dynamiquement par JavaScript -->
 						</div>
 
+						<div class="show-more-container">
+							<button class="show-more-btn" id="show-more-btn">
+								Voir plus
+								<span class="icon">▼</span>
+							</button>
+						</div>
+
 						<h3>Nos Collections</h3>
-						<p>Chaque jardinière de notre galerie est le fruit d'un savoir-faire artisanal transmis depuis
-							trois générations. Nous travaillons exclusivement avec des essences locales (chêne, noyer,
-							frêne, hêtre) sélectionnées pour leur durabilité et leur beauté naturelle.</p>
+						<p>Chaque jardinière de notre galerie est réalisée à la main dans notre jeune atelier, avec la
+							volonté d’allier design, solidité et respect de l’environnement. Nous sélectionnons
+							uniquement des essences locales (sapin, douglas) reconnues pour leur beauté et
+							leur durabilité.</p>
 
 						<p>Toutes nos créations peuvent être personnalisées selon vos envies (dimensions, finitions,
 							détails) pour s'adapter parfaitement à votre espace et à votre style. Nous proposons
@@ -135,7 +206,7 @@
 								<li><strong>Sélection du bois</strong> : Choix des planches parfaites</li>
 								<li><strong>Fabrication</strong> : Travail artisanal dans notre atelier</li>
 								<li><strong>Finition</strong> : Ponçage et traitement protecteur</li>
-								<li><strong>Livraison</strong> : Installation chez vous (sur Paris)</li>
+								<li><strong>Livraison</strong> : Installation chez vous</li>
 							</ol>
 						</div>
 					</article>
@@ -147,51 +218,45 @@
 		<div id="footer">
 			<div class="container">
 				<div class="row">
-					<section class="col-6 col-12-narrower">
-						<h3>Demander un Devis</h3>
+					<section class="col-4 col-12-narrower">
+						<h3>À Propos</h3>
+						<p>Bois & Racine - Ébénisterie d'art depuis 1952. Création de jardinières d'intérieur uniques en
+							bois massif, sur mesure et en série limitée.</p>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+							</li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+							</li>
+							<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a>
+							</li>
+						</ul>
+					</section>
+					<section class="col-4 col-12-narrower">
+						<h3>Liens Utiles</h3>
+						<ul class="links">
+							<li><a href="galerie.html">Nos Jardinières</a></li>
+							<li><a href="histoire.html">Notre Savoir-Faire</a></li>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Conditions Générales</a></li>
+							<li><a href="#">Politique de Confidentialité</a></li>
+						</ul>
+					</section>
+					<section class="col-4 col-12-narrower">
+						<h3>Newsletter</h3>
+						<p>Recevez nos inspirations et nouveautés</p>
 						<form>
 							<div class="row gtr-50">
-								<div class="col-6 col-12-mobilep">
-									<input type="text" name="name" id="name" placeholder="Nom" required />
+								<div class="col-8 col-12-mobilep">
+									<input type="email" name="email" id="footer-email" placeholder="Votre email" />
 								</div>
-								<div class="col-6 col-12-mobilep">
-									<input type="email" name="email" id="email" placeholder="Email" required />
-								</div>
-								<div class="col-12">
-									<textarea name="message" id="message"
-										placeholder="Décrivez votre projet (dimensions, essence de bois, style...)"
-										rows="5" required></textarea>
-								</div>
-								<div class="col-12">
-									<ul class="actions">
-										<li><input type="submit" class="button alt" value="Envoyer ma demande" /></li>
-									</ul>
+								<div class="col-4 col-12-mobilep">
+									<input type="submit" class="button alt" value="OK" />
 								</div>
 							</div>
 						</form>
 					</section>
-					<section class="col-6 col-12-narrower">
-						<h3>Visitez Notre Atelier</h3>
-						<p>Nous accueillons sur rendez-vous dans notre atelier-boutique pour discuter de votre projet :
-						</p>
-						<p>123 Rue du Bois<br>
-							75000 Paris, France<br>
-							Tél: 01 23 45 67 89<br>
-							Email: contact@bois-racine.com</p>
-						<h3>Horaires</h3>
-						<p>Lundi-Vendredi: 9h-18h<br>
-							Samedi: 10h-16h (sur rendez-vous)</p>
-						<a href="contact.html" class="button">Prendre rendez-vous</a>
-					</section>
 				</div>
 			</div>
-
-			<!-- Icons -->
-			<ul class="icons">
-				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
-			</ul>
 
 			<!-- Copyright -->
 			<div class="copyright">
@@ -210,83 +275,215 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	
+
 	<script>
 		// Données de la galerie - pourrait être remplacé par une requête AJAX vers un fichier JSON
 		const galleryData = [
 			{
-				image: "images/jardiniere-classique.jpg",
-				title: "Classique",
-				description: "Jardinière rectangulaire en chêne massif avec finition naturelle, idéale pour les plantes d'intérieur.",
+				image: "images/pic01.jpg",
 				category: "interieur"
 			},
 			{
-				image: "images/jardiniere-murale.jpg",
-				title: "Murale",
-				description: "Jardinière murale en noyer français avec système de fixation invisible, parfaite pour les petits espaces.",
+				image: "images/pic02.jpg",
+				category: "exterieur"
+			},
+			{
+				image: "images/pic03.jpg",
 				category: "mural"
 			},
 			{
-				image: "images/jardiniere-design.jpg",
-				title: "Design",
-				description: "Jardinière contemporaine en frêne et laiton avec bac d'arrosage intégré, pour une touche moderne.",
-				category: "design"
-			},
-			{
-				image: "images/jardiniere-suspendue.jpg",
-				title: "Suspendue",
-				description: "Jardinière suspendue en hêtre avec système de cordage en cuir, pour une ambiance bohème.",
-				category: "suspendu"
-			},
-			{
-				image: "images/jardiniere-angle.jpg",
-				title: "D'angle",
-				description: "Jardinière triangulaire en chêne noirci spécialement conçue pour les coins de pièce.",
+				image: "images/pic04.jpg",
 				category: "interieur"
 			},
 			{
-				image: "images/jardiniere-sur-mesure.jpg",
-				title: "Sur Mesure",
-				description: "Exemple de jardinière réalisée sur mesure selon les dimensions et essences demandées par le client.",
-				category: "mesure"
-			}
-			// Vous pouvez ajouter d'autres éléments ici ou les charger dynamiquement
+				image: "images/pic05.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic06.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic06.jpg",
+				category: "interieur"
+			},
+			{
+				image: "https://www.tourisme-en-aubrac.com/app/uploads/iris-images/30580/lac-aubrac-truyere-1920x1080-f50_50.webp",
+				category: "interieur"
+			},
+			{
+				image: "images/pic01.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic02.jpg",
+				category: "exterieur"
+			},
+			{
+				image: "images/pic03.jpg",
+				category: "mural"
+			},
+			{
+				image: "images/pic04.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic05.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic06.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic06.jpg",
+				category: "interieur"
+			},
+			{
+				image: "https://www.tourisme-en-aubrac.com/app/uploads/iris-images/30580/lac-aubrac-truyere-1920x1080-f50_50.webp",
+				category: "interieur"
+			},
+			{
+				image: "images/pic01.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic02.jpg",
+				category: "exterieur"
+			},
+			{
+				image: "images/pic03.jpg",
+				category: "mural"
+			},
+			{
+				image: "images/pic04.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic05.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic06.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic06.jpg",
+				category: "interieur"
+			},
+			{
+				image: "https://www.tourisme-en-aubrac.com/app/uploads/iris-images/30580/lac-aubrac-truyere-1920x1080-f50_50.webp",
+				category: "interieur"
+			},
+			{
+				image: "images/pic01.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic02.jpg",
+				category: "exterieur"
+			},
+			{
+				image: "images/pic03.jpg",
+				category: "mural"
+			},
+			{
+				image: "images/pic04.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic05.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic06.jpg",
+				category: "interieur"
+			},
+			{
+				image: "images/pic06.jpg",
+				category: "interieur"
+			},
+			{
+				image: "https://www.tourisme-en-aubrac.com/app/uploads/iris-images/30580/lac-aubrac-truyere-1920x1080-f50_50.webp",
+				category: "interieur"
+			},
 		];
 
-		// Fonction pour générer la galerie
+		// Fonction pour obtenir toutes les catégories uniques
+		function getUniqueCategories() {
+			const categories = new Set();
+			galleryData.forEach(item => {
+				categories.add(item.category);
+			});
+			return Array.from(categories);
+		}
+
+		// Fonction pour générer les filtres
+		function generateFilters() {
+			const filterContainer = document.getElementById('filter-container');
+			filterContainer.innerHTML = '';
+
+			// Ajouter le bouton "Toutes" en premier
+			const allButton = document.createElement('button');
+			allButton.className = 'filter-btn active';
+			allButton.dataset.filter = 'all';
+			allButton.textContent = 'Toutes';
+			filterContainer.appendChild(allButton);
+
+			// Ajouter les boutons pour chaque catégorie unique
+			const uniqueCategories = getUniqueCategories();
+			uniqueCategories.forEach(category => {
+				const button = document.createElement('button');
+				button.className = 'filter-btn';
+				button.dataset.filter = category;
+
+				// Mettre en forme le texte de la catégorie (première lettre en majuscule)
+				button.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+
+				filterContainer.appendChild(button);
+			});
+		}
+
+		// Fonction pour générer la galerie (inchangée)
 		function generateGallery() {
 			const galleryContainer = document.getElementById('gallery-container');
 			galleryContainer.innerHTML = '';
-			
+
 			galleryData.forEach(item => {
 				const galleryItem = document.createElement('div');
-				galleryItem.className = `gallery-item ${item.category}`;
+				galleryItem.className = `gallery-item ${item.category.toLowerCase()}`; // Ajout de toLowerCase() pour être sûr
 				galleryItem.innerHTML = `
-					<div class="box gallery-item">
-						<a href="#" class="image featured"><img src="${item.image}" alt="${item.title}" /></a>
-						<h3>${item.title}</h3>
-						<p>${item.description}</p>
-						<a href="contact.html" class="button small">Demander un devis</a>
+					<div class="box">
+						<a href="#" class="image"><img src="${item.image}" alt="${item.title || ''}" /></a>
 					</div>
 				`;
 				galleryContainer.appendChild(galleryItem);
 			});
-			
+
 			// Afficher tous les éléments initialement
 			filterGallery('all');
 		}
 
-		// Fonction pour filtrer la galerie
+		// Fonction pour filtrer la galerie (inchangée)
 		function filterGallery(category) {
 			const items = document.querySelectorAll('.gallery-item');
-			
+
 			items.forEach(item => {
 				item.classList.remove('show');
 				if (category === 'all' || item.classList.contains(category)) {
 					item.classList.add('show');
 				}
 			});
-			
+
+			// Réduire la galerie après filtrage
+			const galleryGrid = document.getElementById('gallery-container');
+			galleryGrid.classList.remove('expanded');
+			document.getElementById('show-more-btn').classList.remove('expanded');
+			document.getElementById('show-more-btn').innerHTML = 'Voir plus <span class="icon">▼</span>';
+
+			// Vérifier si le bouton "Voir plus" est nécessaire
+			checkShowMoreButton();
+
 			// Mettre à jour les boutons actifs
 			document.querySelectorAll('.filter-btn').forEach(btn => {
 				btn.classList.remove('active');
@@ -296,38 +493,56 @@
 			});
 		}
 
-		// Charger la galerie au démarrage
-		document.addEventListener('DOMContentLoaded', function() {
+		// Charger la galerie et les filtres au démarrage
+		document.addEventListener('DOMContentLoaded', function () {
 			generateGallery();
-			
+			generateFilters();
+			setupShowMoreButton(); // Ajoutez cette ligne
+
 			// Gérer les clics sur les boutons de filtre
 			document.querySelectorAll('.filter-btn').forEach(btn => {
-				btn.addEventListener('click', function() {
+				btn.addEventListener('click', function () {
 					filterGallery(this.dataset.filter);
 				});
 			});
 		});
 
-		// Solution pour intégration automatique des nouvelles images
-		// Option 1: Utiliser un fichier JSON (recommandé)
-		// Créez un fichier data.json dans votre dossier images avec la structure des données
-		// Puis utilisez fetch() pour charger les données dynamiquement
-		
-		/*
-		async function loadGalleryData() {
-			try {
-				const response = await fetch('images/data.json');
-				const data = await response.json();
-				galleryData = data;
-				generateGallery();
-			} catch (error) {
-				console.error('Erreur de chargement des données:', error);
+		// Ajoutez cette fonction à votre script existant
+		function setupShowMoreButton() {
+			const showMoreBtn = document.getElementById('show-more-btn');
+			const galleryGrid = document.getElementById('gallery-container');
+
+			showMoreBtn.addEventListener('click', function () {
+				galleryGrid.classList.toggle('expanded');
+				this.classList.toggle('expanded');
+
+				// Changer le texte du bouton
+				if (this.classList.contains('expanded')) {
+					this.innerHTML = 'Voir moins <span class="icon">▲</span>';
+				} else {
+					this.innerHTML = 'Voir plus <span class="icon">▼</span>';
+				}
+			});
+		}
+
+		function checkShowMoreButton() {
+			const showMoreBtn = document.getElementById('show-more-btn');
+			const galleryGrid = document.getElementById('gallery-container');
+			const galleryItems = galleryGrid.querySelectorAll('.gallery-item.show');
+
+			// Calculer combien d'items sont visibles
+			const visibleItems = Array.from(galleryItems).filter(item =>
+				window.getComputedStyle(item).display !== 'none'
+			).length;
+
+			// Masquer le bouton si moins de 8 items (4 lignes de 2) ou selon votre besoin
+			if (visibleItems <= 8) { // Ajustez ce nombre selon votre grille
+				showMoreBtn.style.display = 'none';
+			} else {
+				showMoreBtn.style.display = 'inline-block';
 			}
 		}
-		*/
-		
-		// Option 2: Scanner le dossier images (nécessite un langage serveur comme PHP)
-		// Vous pourriez créer un script PHP qui scanne le dossier images et génère le JSON
+
 	</script>
 </body>
 
