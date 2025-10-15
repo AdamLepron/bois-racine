@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bois et Racine - Potagers Suspendus et Jardinières Hors Sol</title>
+  <meta name="description"
+    content="Bois et Racine crée des potagers suspendus et jardinières hors sol en bois de qualité pour transformer votre espace en jardin productif et esthétique.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Variables de thème */
+    :root {
+      --primary: #4CAF50;
+      --primary-dark: #388E3C;
+      --dark: #2E2E2E;
+      --darker: #1E1E1E;
+      --light: #FFFFFF;
+      --gray: #AAAAAA;
+      --dark-gray: #444444;
+      --accent: #8BC34A;
+      --transition-speed: 0.3s;
+      --wood: #8B4513;
+    }
+
+    /* Réinitialisation et styles globaux */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--transition-speed) ease;
+    }
+
+    a:focus {
+      outline: 2px dashed var(--primary);
+      outline-offset: 4px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .section-title p {
+      font-size: 1.1rem;
+      color: var(--dark-gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all var(--transition-speed) ease;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--light);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: var(--light);
+    }
+
+    /* Navbar */
+    header {
+      position: relative;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 1000;
+      transition: all var(--transition-speed) ease;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(76, 175, 80, 0.1);
+    }
+
+    .navbar.scrolled {
+      padding: 15px 0;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .navbar-logo {
+      height: 50px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .navbar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .navbar-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .navbar-links li a {
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .navbar-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width var(--transition-speed) ease;
+    }
+
+    .navbar-links li a:hover::after,
+    .navbar-links li a.active::after {
+      width: 100%;
+    }
+
+    .navbar-links li a:hover {
+      color: var(--primary);
+    }
+
+    .navbar-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--dark);
+    }
+
+    /* Section Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: var(--dark-gray);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--primary);
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    /* Section À propos */
+    .about {
+      background-color: #f9f9f9;
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-content h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      color: var(--dark-gray);
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .feature-icon {
+      background-color: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: var(--dark);
+    }
+
+    .feature-content p {
+      font-size: 0.9rem;
+      color: var(--dark-gray);
+      margin-bottom: 0;
+    }
+
+    /* Section Produits */
+    .products {
+      background-color: var(--light);
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(76, 175, 80, 0.2);
+    }
+
+    .product-image {
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 25px;
+    }
+
+    .product-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .product-info p {
+      color: var(--dark-gray);
+      margin-bottom: 20px;
+    }
+
+    .product-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--wood);
+      margin-bottom: 15px;
+    }
+
+    /* Section Galerie */
+    .gallery {
+      background-color: #f9f9f9;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all var(--transition-speed) ease;
+      aspect-ratio: 1 / 1;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(76, 175, 80, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: white;
+      padding: 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+
+    .gallery-overlay h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .gallery-overlay p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .gallery-load-more {
+      text-align: center;
+    }
+
+    .gallery-load-more.hidden {
+      display: none;
+    }
+
+    .gallery-loading {
+      text-align: center;
+      padding: 40px 0;
+      color: var(--dark-gray);
+    }
+
+    .gallery-error {
+      text-align: center;
+      padding: 40px 0;
+      color: #d32f2f;
+      background-color: #ffebee;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    /* Section Avantages */
+    .advantages {
+      background-color: var(--light);
+    }
+
+    .advantages-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .advantage-card {
+      background-color: white;
+      padding: 40px 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all var(--transition-speed) ease;
+      border-top: 4px solid transparent;
+    }
+
+    .advantage-card:hover {
+      transform: translateY(-10px);
+      border-top-color: var(--primary);
+    }
+
+    .advantage-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .advantage-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    .advantage-card p {
+      color: var(--dark-gray);
+    }
+
+    /* Section Témoignages */
+    .testimonials {
+      background-color: #f9f9f9;
+    }
+
+    .testimonials-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .testimonial-slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .testimonial-slide {
+      min-width: 100%;
+      padding: 0 20px;
+    }
+
+    .testimonial-card {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-size: 5rem;
+      color: var(--primary);
+      opacity: 0.2;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-text {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--dark-gray);
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .author-info p {
+      color: var(--dark-gray);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .testimonial-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ddd;
+      cursor: pointer;
+      transition: background-color var(--transition-speed);
+    }
+
+    .testimonial-dot.active {
+      background-color: var(--primary);
+    }
+
+    /* Section Contact */
+    .contact {
+      background-color: var(--light);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .contact-info p {
+      margin-bottom: 30px;
+      color: var(--dark-gray);
+    }
+
+    .contact-details {
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: var(--dark);
+    }
+
+    .contact-text p {
+      margin-bottom: 0;
+      color: var(--dark-gray);
+    }
+
+    .contact-social {
+      display: flex;
+      gap: 15px;
+    }
+
+    .contact-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .contact-social a:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    .contact-form {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color var(--transition-speed);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--darker);
+      color: var(--light);
+      padding: 80px 0 30px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-about h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .footer-about p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .footer-links h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-links i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    .footer-contact h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .footer-contact p {
+      color: var(--gray);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-contact i {
+      color: var(--primary);
+      width: 20px;
+      text-align: center;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--dark-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .footer-social a:hover {
+      background-color: var(--primary);
+      color: var(--light);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Animation Bounce */
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0) translateX(-50%);
+      }
+
+      40% {
+        transform: translateY(-20px) translateX(-50%);
+      }
+
+      60% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: all 0.5s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-links.active {
+        left: 0;
+      }
+
+      .navbar-toggle {
+        display: block;
+      }
+
+      .navbar-title {
+        display: none;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .about-features {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 30px 20px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+
+    @media (max-width: 576px) {
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .product-info {
+        padding: 20px;
+      }
+
+      .testimonial-card {
+        padding: 30px 20px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- =============== NAVBAR =============== -->
+    <nav class="navbar" aria-label="Navigation principale">
+      <div class="container navbar-container">
+        <div class="navbar-brand">
+          <a href="#" class="navbar-logo" aria-label="Accueil Bois et Racine">
+            <div
+              style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+              <i class="fas fa-seedling"></i>
+            </div>
+          </a>
+          <div class="navbar-title">Bois et Racine</div>
+        </div>
+        <ul class="navbar-links">
+          <li><a href="#" class="active">Accueil</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#products">Produits</a></li>
+          <li><a href="#gallery">Galerie</a></li>
+          <li><a href="#advantages">Avantages</a></li>
+          <li><a href="#testimonials">Témoignages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="navbar-toggle" aria-label="Ouvrir le menu mobile">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =============== HERO =============== -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1><b>Votre coin de verdure,</b> sculpté en bois & en rêves.</h1>
+        <p>Transformez votre espace avec nos créations en bois uniques, conçues pour cultiver vos propres légumes et
+          herbes aromatiques, même sans jardin.</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">
+            <i class="fas fa-shopping-bag"></i> Découvrir nos produits
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-envelope"></i> Nous contacter
+          </a>
+        </div>
+      </div>
+      <a href="#about" class="scroll-down" aria-label="Faire défiler vers la section À propos">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- =============== À PROPOS =============== -->
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="about-container">
+          <div class="about-image">
+            <img
+              src="https://media.cemonjardin.com/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/8/2/820330_primo90_01.jpg"
+              alt="Atelier Bois et Racine">
+          </div>
+          <div class="about-content">
+            <h2>Notre Histoire</h2>
+            <p>Bois & Racine est née de la passion d’un maraîcher pour la nature et le travail bien fait. Après des
+              années à cultiver la terre, il met aujourd’hui son savoir-faire et son sens du détail au service de la
+              création de jardinières et bacs à plantes en bois, conçus pour embellir vos espaces intérieurs et
+              extérieurs</p>
+            <p>Nos potagers suspendus et jardinières hors sol sont conçus avec soin, en utilisant des matériaux durables
+              et écologiques. Chaque pièce est unique, fabriquée artisanalement dans notre atelier.</p>
+            <div class="about-features">
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="feature-content">
+                  <h3>Écologique</h3>
+                  <p>Matériaux durables et respectueux de l'environnement</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-hammer"></i>
+                </div>
+                <div class="feature-content">
+                  <h3>Artisanal</h3>
+                  <p>Fabrication française et savoir-faire traditionnel</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-award"></i>
+                </div>
+                <div class="feature-content">
+                  <h3>Qualité</h3>
+                  <p>Produits robustes conçus pour durer dans le temps</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="feature-content">
+                  <h3>Passion</h3>
+                  <p>Créations uniques nées de notre amour pour la nature</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== PRODUITS =============== -->
+    <section id="products" class="products section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nos Créations</h2>
+          <p>Découvrez notre gamme de potagers suspendus et jardinières hors sol, conçus pour s'adapter à tous les
+            espaces.</p>
+        </div>
+        <div class="products-container">
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Potager suspendu balcon">
+            </div>
+            <div class="product-info">
+              <h3>Potager Suspendu Balcon</h3>
+              <p>Idéal pour les petits espaces, ce potager suspendu permet de cultiver herbes aromatiques et petits
+                légumes sur votre balcon ou terrasse.</p>
+              <div class="product-price">À partir de 89€</div>
+              <a href="#contact" class="btn btn-outline">Demander un devis</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Jardinière hors sol terrasse">
+            </div>
+            <div class="product-info">
+              <h3>Jardinière Hors Sol Terrasse</h3>
+              <p>Cette jardinière surélevée en bois massif est parfaite pour créer un coin potager sur votre terrasse
+                sans avoir à vous baisser.</p>
+              <div class="product-price">À partir de 149€</div>
+              <a href="#contact" class="btn btn-outline">Demander un devis</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1598880940087-4c26788c2a7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Système modulaire potager">
+            </div>
+            <div class="product-info">
+              <h3>Système Modulaire Potager</h3>
+              <p>Composez votre propre potager avec nos modules empilables et modulables. Adaptez la taille et la forme
+                à vos besoins.</p>
+              <div class="product-price">À partir de 199€</div>
+              <a href="#contact" class="btn btn-outline">Demander un devis</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== GALERIE =============== -->
+    <section id="gallery" class="gallery section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Notre Galerie</h2>
+          <p>Découvrez nos réalisations et inspirez-vous pour votre propre projet de jardinage.</p>
+        </div>
+        <div class="gallery-container">
+          <div id="gallery-grid" class="gallery-grid">
+            <!-- Les images seront chargées dynamiquement ici -->
+          </div>
+          <div id="gallery-loading" class="gallery-loading">
+            <i class="fas fa-spinner fa-spin fa-2x"></i>
+            <p>Chargement de la galerie...</p>
+          </div>
+          <div id="gallery-error" class="gallery-error" style="display: none;">
+            <i class="fas fa-exclamation-triangle fa-2x"></i>
+            <p id="error-message">Erreur lors du chargement de la galerie. Veuillez réessayer.</p>
+            <button id="retry-btn" class="btn btn-primary">Réessayer</button>
+          </div>
+          <div id="gallery-load-more" class="gallery-load-more hidden">
+            <button id="load-more-btn" class="btn btn-outline">
+              <i class="fas fa-plus"></i> Voir plus d'images
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== AVANTAGES =============== -->
+    <section id="advantages" class="advantages section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Pourquoi Choisir Bois et Racine</h2>
+          <p>Nos créations allient esthétique, fonctionnalité et durabilité pour transformer votre façon de jardiner.
+          </p>
+        </div>
+        <div class="advantages-container">
+          <div class="advantage-card">
+            <div class="advantage-icon">
+              <i class="fas fa-tree"></i>
+            </div>
+            <h3>Bois Durable</h3>
+            <p>Nous utilisons des essences locales certifiées PEFC, séché et traité naturellement.</p>
+          </div>
+          <div class="advantage-card">
+            <div class="advantage-icon">
+              <i class="fa-solid fa-ruler-combined"></i>
+            </div>
+            <h3>Sur Mesure</h3>
+            <p>Chaque projet est conçue sur mesure selon vos préférences et votre style décoratif.</p>
+          </div>
+          <div class="advantage-card">
+            <div class="advantage-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Artisans Français</h3>
+            <p>Nous réalisons vos projets depuis notre atelier en Alsace.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== TÉMOIGNAGES =============== -->
+    <section id="testimonials" class="testimonials section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Ils Nous Font Confiance</h2>
+          <p>Découvrez les retours de nos clients satisfaits par nos créations.</p>
+        </div>
+        <div class="testimonials-container">
+          <div class="testimonial-slider">
+            <div class="testimonial-track">
+              <div class="testimonial-slide">
+                <div class="testimonial-card">
+                  <p class="testimonial-text">J'ai acheté un potager suspendu pour mon balcon et je suis ravi ! La
+                    qualité du bois est exceptionnelle et j'ai pu récolter mes premiers légumes seulement deux mois
+                    après l'installation. Je recommande vivement !</p>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">
+                      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Photo de Marie L.">
+                    </div>
+                    <div class="author-info">
+                      <h4>Marie L.</h4>
+                      <p>Paris</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-slide">
+                <div class="testimonial-card">
+                  <p class="testimonial-text">La jardinière hors sol a transformé ma terrasse. Non seulement elle est
+                    magnifique, mais en plus elle est très fonctionnelle. Plus besoin de se baisser pour jardiner, un
+                    vrai bonheur !</p>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Photo de Pierre D.">
+                    </div>
+                    <div class="author-info">
+                      <h4>Pierre D.</h4>
+                      <p>Lyon</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-slide">
+                <div class="testimonial-card">
+                  <p class="testimonial-text">Le système modulaire est génial ! J'ai pu créer un potager sur mesure qui
+                    s'intègre parfaitement dans mon petit jardin. La qualité est au rendez-vous et le service client est
+                    très réactif.</p>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">
+                      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Photo de Sophie M.">
+                    </div>
+                    <div class="author-info">
+                      <h4>Sophie M.</h4>
+                      <p>Bordeaux</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-nav">
+            <div class="testimonial-dot active" data-slide="0"></div>
+            <div class="testimonial-dot" data-slide="1"></div>
+            <div class="testimonial-dot" data-slide="2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== CONTACT =============== -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contactez-Nous</h2>
+          <p>N'hésitez pas à nous contacter pour toute question ou demande de devis personnalisé.</p>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h2>Parlons de votre projet</h2>
+            <p>Que vous souhaitiez un potager suspendu pour votre balcon ou une jardinière sur mesure pour votre
+              terrasse, notre équipe est à votre écoute pour concrétiser votre projet.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Notre atelier</h4>
+                  <p>Altkirch, Haut-Rhin 68000</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Téléphone</h4>
+                  <p>+33 6 37 53 60 48</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p>contact@bois-racine.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-social">
+              <a href="#" aria-label="Suivez-nous sur Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Suivez-nous sur Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Suivez-nous sur Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Nom complet</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Adresse email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="message">Votre message</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Envoyer votre message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =============== FOOTER =============== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3>Bois et Racine</h3>
+          <p>Spécialistes des potagers suspendus et jardinières hors sol, nous créons des solutions de jardinage
+            innovantes pour transformer votre espace en coin de verdure productif.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Suivez-nous sur Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Suivez-nous sur Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Suivez-nous sur Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Liens rapides</h3>
+          <ul>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+            <li><a href="#about"><i class="fas fa-chevron-right"></i> À propos</a></li>
+            <li><a href="#products"><i class="fas fa-chevron-right"></i> Produits</a></li>
+            <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Galerie</a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Altkirch, Haut-Rhin 68000</p>
+          <p><i class="fas fa-phone"></i> +33 6 37 53 60 48</p>
+          <p><i class="fas fa-envelope"></i> contact@bois-racine.com</p>
+          <p><i class="fas fa-clock"></i> Lun-Ven: 9h-18h</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Bois et Racine - Tous droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Gestion du menu mobile
+    document.addEventListener('DOMContentLoaded', function () {
+      const navbarToggle = document.querySelector('.navbar-toggle');
+      const navbarLinks = document.querySelector('.navbar-links');
+
+      navbarToggle.addEventListener('click', function () {
+        navbarLinks.classList.toggle('active');
+        this.querySelector('i').classList.toggle('fa-bars');
+        this.querySelector('i').classList.toggle('fa-times');
+      });
+
+      // Fermer le menu mobile en cliquant sur un lien
+      document.querySelectorAll('.navbar-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navbarLinks.classList.remove('active');
+          navbarToggle.querySelector('i').classList.add('fa-bars');
+          navbarToggle.querySelector('i').classList.remove('fa-times');
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Carousel de témoignages
+      const testimonialTrack = document.querySelector('.testimonial-track');
+      const testimonialDots = document.querySelectorAll('.testimonial-dot');
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+
+        // Mettre à jour les points indicateurs
+        testimonialDots.forEach(dot => dot.classList.remove('active'));
+        testimonialDots[index].classList.add('active');
+
+        currentSlide = index;
+      }
+
+      // Ajouter les écouteurs d'événements aux points
+      testimonialDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showSlide(index);
+        });
+      });
+
+      // Défilement automatique
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % testimonialDots.length;
+        showSlide(currentSlide);
+      }, 5000);
+
+      // Gestion du formulaire de contact
+      const contactForm = document.getElementById('contactForm');
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+        contactForm.reset();
+      });
+
+      // =============== GESTION DE LA GALERIE ===============
+
+      // Configuration de la galerie
+      const GALLERY_CONFIG = {
+        GOOGLE_SHEET_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycby-unsMvZkecmsuV8rATxD4Kcb3oqHdx4n9ERXac5fItqgSwCf0_aSz_Ery1nRyeo8/exec',
+        INITIAL_IMAGES_COUNT: 8,
+        LOAD_MORE_COUNT: 8
+      };
+
+      // État de la galerie
+      const galleryState = {
+        allImages: [],
+        displayedImages: 0,
+        isLoading: false
+      };
+
+      // Éléments DOM de la galerie
+      const galleryGrid = document.getElementById('gallery-grid');
+      const galleryLoading = document.getElementById('gallery-loading');
+      const galleryError = document.getElementById('gallery-error');
+      const errorMessage = document.getElementById('error-message');
+      const galleryLoadMore = document.getElementById('gallery-load-more');
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      const retryBtn = document.getElementById('retry-btn');
+
+      // Charger les images depuis Google Sheets
+      async function loadGalleryImages() {
+        try {
+          galleryState.isLoading = true;
+          galleryLoading.style.display = 'block';
+          galleryError.style.display = 'none';
+          galleryLoadMore.classList.add('hidden');
+
+          console.log('Chargement des images depuis:', GALLERY_CONFIG.GOOGLE_SHEET_SCRIPT_URL);
+
+          // Appel à votre Google Apps Script
+          const response = await fetch(GALLERY_CONFIG.GOOGLE_SHEET_SCRIPT_URL);
+
+          if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log('Données reçues:', data);
+
+          if (!data.success) {
+            throw new Error(data.error || 'Erreur inconnue du serveur');
+          }
+
+          // Stocker toutes les images
+          galleryState.allImages = data.data;
+          console.log('Images chargées:', galleryState.allImages.length);
+
+          // Afficher les premières images
+          displayInitialImages();
+
+          galleryLoading.style.display = 'none';
+
+        } catch (error) {
+          console.error('Erreur lors du chargement de la galerie:', error);
+          galleryLoading.style.display = 'none';
+          galleryError.style.display = 'block';
+          errorMessage.textContent = `Erreur lors du chargement de la galerie: ${error.message}`;
+        } finally {
+          galleryState.isLoading = false;
+        }
+      }
+
+      // Afficher les images initiales
+      function displayInitialImages() {
+        const initialImages = galleryState.allImages.slice(0, GALLERY_CONFIG.INITIAL_IMAGES_COUNT);
+        galleryState.displayedImages = initialImages.length;
+
+        console.log('Affichage des premières images:', initialImages.length);
+
+        // Vider la galerie
+        galleryGrid.innerHTML = '';
+
+        // Ajouter les images à la galerie
+        initialImages.forEach((image, index) => {
+          addImageToGallery(image, index);
+        });
+
+        // Afficher le bouton "Voir plus" s'il reste des images
+        updateLoadMoreButton();
+      }
+
+      // Charger plus d'images
+      function loadMoreImages() {
+        if (galleryState.isLoading) return;
+
+        const startIndex = galleryState.displayedImages;
+        const endIndex = startIndex + GALLERY_CONFIG.LOAD_MORE_COUNT;
+        const moreImages = galleryState.allImages.slice(startIndex, endIndex);
+
+        console.log('Chargement de plus d\'images:', moreImages.length);
+
+        moreImages.forEach((image, index) => {
+          addImageToGallery(image, startIndex + index);
+        });
+
+        galleryState.displayedImages += moreImages.length;
+
+        // Masquer le bouton "Voir plus" si toutes les images sont affichées
+        updateLoadMoreButton();
+      }
+
+      // Ajouter une image à la galerie
+      function addImageToGallery(image, index) {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+
+        galleryItem.innerHTML = `
+    <img src="${image.url}" alt="${image.title}" loading="lazy">
+    <div class="gallery-overlay">
+      <h4>${image.title}</h4>
+      ${image.description ? `<p>${image.description}</p>` : ''}
+      ${image.category ? `<small>${image.category}</small>` : ''}
+    </div>
+  `;
+
+        galleryGrid.appendChild(galleryItem);
+      }
+
+      // Mettre à jour le bouton "Voir plus"
+      function updateLoadMoreButton() {
+        const remainingImages = galleryState.allImages.length - galleryState.displayedImages;
+
+        console.log('Images restantes:', remainingImages);
+
+        if (remainingImages > 0) {
+          galleryLoadMore.classList.remove('hidden');
+          loadMoreBtn.innerHTML = `<i class="fas fa-plus"></i> Voir plus d'images (${remainingImages} restantes)`;
+        } else {
+          galleryLoadMore.classList.add('hidden');
+        }
+      }
+
+      // Événements de la galerie
+      loadMoreBtn.addEventListener('click', loadMoreImages);
+      retryBtn.addEventListener('click', loadGalleryImages);
+
+      // Charger la galerie au chargement de la page
+      console.log('Démarrage du chargement de la galerie...');
+      loadGalleryImages();
+    });
+  </script>
+</body>
+
+</html>
